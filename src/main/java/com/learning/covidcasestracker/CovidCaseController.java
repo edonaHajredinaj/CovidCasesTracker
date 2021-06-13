@@ -20,7 +20,7 @@ public class CovidCaseController {
 
     @GetMapping
     public List<CovidCase> getCovidCases() {
-    return caseService.getCovidCases();
+        return caseService.getCovidCases();
     }
 
     @GetMapping(path = "{PatientID}")
@@ -56,7 +56,7 @@ public class CovidCaseController {
                 casePeriod,
                 city,
                 underlyingDisease
-                );
+        );
     }
 
 }
