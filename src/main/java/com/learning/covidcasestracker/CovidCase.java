@@ -13,6 +13,7 @@ import java.time.Period;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class CovidCase {
 
     @Id
