@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface CovidCaseRepository extends JpaRepository<CovidCase, Integer> {
 
-    //SELECT * FROM cases WH ERE email = ?
+    //SELECT * FROM cases WHERE email = ?
     @Query("SELECT c FROM CovidCase c WHERE c.email = ?1")
     Optional<CovidCase> findCovidCaseByEmail(String email);
 }
