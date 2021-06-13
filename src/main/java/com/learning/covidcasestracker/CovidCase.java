@@ -27,10 +27,12 @@ public class CovidCase {
     private String casePeriod;
     private String city;
     private boolean underlyingDisease;
+    private boolean deactivated;
+    private boolean recovered;
+    private boolean deceased;
 
     //no need for age to be a column in the database,
-    // age will calculated for us
-
+    // age is calculated
 
     protected CovidCase() {
     }
