@@ -1,4 +1,4 @@
-package com.learning.covidcasestracker;
+package com.learning.covidcasestracker.data.model;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 @Entity
-@Table
+@Table(name = "cases")
 @Getter
 @Setter
 @ToString

@@ -1,5 +1,7 @@
-package com.learning.covidcasestracker;
+package com.learning.covidcasestracker.config;
 
+import com.learning.covidcasestracker.data.model.CovidCase;
+import com.learning.covidcasestracker.data.CovidCaseRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +27,7 @@ public class CovidCaseConfig {
                     .casePeriod(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()))
                     .city("Prizren")
                     .underlyingDisease(false)
-                    .deactivated(false)
+                    .deactivated(true)
                     .recovered(false)
                     .deceased(false)
                     .build();
@@ -39,11 +41,23 @@ public class CovidCaseConfig {
                     .underlyingDisease(false)
                     .deactivated(false)
                     .recovered(false)
+                    .deceased(true)
+                    .build();
+
+            CovidCase njeri = CovidCase.builder()
+                    .fullName("Ni Njeri")
+                    .birthday(LocalDate.of(1997, APRIL, 17))
+                    .email("e4545@email.com")
+                    .casePeriod(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()))
+                    .city("Belfast")
+                    .underlyingDisease(true)
+                    .deactivated(false)
+                    .recovered(false)
                     .deceased(false)
                     .build();
 
             repository.saveAll(
-                    List.of(keksi, eleri)
+                    List.of(keksi, eleri, njeri)
             );
         };
     }
