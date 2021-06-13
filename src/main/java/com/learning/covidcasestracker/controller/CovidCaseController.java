@@ -34,8 +34,8 @@ public class CovidCaseController {
 
 
     @GetMapping(path = "{patientID}")
-    public Optional<CovidCase> getCovidCaseById(@PathVariable("patientID") Integer PatientID) {
-        return caseService.getCovidCaseByID(PatientID);
+    public CovidCase getCovidCaseById(@PathVariable("patientID") Integer PatientID) {
+        return caseService.getCovidCaseByIdOrThrow(PatientID);
     }
 
     @PostMapping("/create")

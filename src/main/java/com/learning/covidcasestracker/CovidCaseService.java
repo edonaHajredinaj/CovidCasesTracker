@@ -28,13 +28,6 @@ public class CovidCaseService {
         return caseRepository.findAll();
     }
 
-    public Optional<CovidCase> getCovidCaseByID(Integer PatientID) {
-        if (!caseRepository.existsById(PatientID)) {
-            throw new IllegalStateException("case with id " + PatientID + " does not exist");
-        }
-        return caseRepository.findById(PatientID);
-    }
-
     public void addNewCovidCase(CovidCase covidCase) {
         Optional<CovidCase> caseOptional = caseRepository
                 .findCovidCaseByEmail(covidCase.getEmail());
@@ -44,11 +37,14 @@ public class CovidCaseService {
         caseRepository.save(covidCase);
     }
 
+    public CovidCase getCovidCaseByIdOrThrow(Integer patientID) {
+        return caseRepository.findById(patientID)
+                .orElseThrow(() -> new IllegalStateException(
+                        "covid case with id " + patientID + " does not exist"));
+    }
+
     public void deleteCase(Integer PatientID) {
-        boolean exists = caseRepository.existsById(PatientID);
-        if (!exists) {
-            throw new IllegalStateException("case with id " + PatientID + " does not exist");
-        }
+        getCovidCaseByIdOrThrow(PatientID);
         caseRepository.deleteById(PatientID);
     }
 
@@ -80,12 +76,6 @@ public class CovidCaseService {
         }
 
         covidCase.setUnderlyingDisease(request.isUnderlyingDisease());
-    }
-
-    private CovidCase getCovidCaseByIdOrThrow(Integer patientID) {
-        return caseRepository.findById(patientID)
-                .orElseThrow(() -> new IllegalStateException(
-                        "covid case with id " + patientID + " does not exist"));
     }
 
     private boolean isValid(String newValue, String oldValue) {
