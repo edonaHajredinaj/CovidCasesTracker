@@ -4,22 +4,23 @@
 - Java
 - Mysql
 - Spring Boot
-- JPARepository
+- JPA Repository
 
 #### Database Tables
 
 | cases      |  |
 | ----------- | ----------- |
-| PatientID (increment)       | int(11) unsigned |
-| FullName    | varchar(25)        |
-| BirthDate      | date  |
-| Age       | int(11)  |
-| Email    | varchar(25)       |
-| CasePeriod    | varchar(25)       |
-| City    | varchar(25)       |
-| UnderlyingDisease     | tinyint(1) |
-
-
+| patientid (increment)       | int(11) unsigned |
+| full_name    | varchar(25)        |
+| birth_date      | date  |
+| age       | int(11)  |
+| email    | varchar(25)       |
+| case_period    | varchar(25)       |
+| city    | varchar(25)       |
+| underlying_disease     | tinyint(1) |
+| deceased     | tinyint(1) |
+| recovered     | tinyint(1) |
+| deactivated     | tinyint(1) |
 
 ## REST API Routes/Endpoints
 
@@ -57,13 +58,11 @@ Open in HTTP client
 ```
 
 
-
-
 ## The Code Challenge
 
 Create a Java Backend Web-Service for the purpose of tracking COVID-19 cases.
 
-More specifically,  create a Spring Boot application in Java that incorporates a database. The database can be any of your choice, file based or DBMS.
+More specifically, create a Spring Boot application in Java that incorporates a database. The database can be any of your choice, file based or DBMS.
 
 Basic operations that your app should support:
 - Insertion of a new case.
@@ -74,13 +73,13 @@ Basic operations that your app should support:
 For each COVID-19 case you should try to store the following data (but you may add more of your choice):
 - Patient ID.
 - Full Name.
-- Date of birthfor the patient.
+- Date of birth for the patient.
 - Timestamp for the COVID case.
 - City (Location of the patient).
-- Underlying diseasefor the patient(true/false if exists or not).
+- Underlying diseasefor the patient (true/false if exists or not).
 
 Additional info:
-• For long lasting operations, background threading shouldbe utilized.
+• For long lasting operations, background threading should be utilized.
 • Inside your web service you are expected to use at least two Design Patterns of your choice (please use comments inside your code to clearly show its use).
 • For the creation of statistics (some basic ones) you are expected to use the Java Stream API.
 • Optionally, you may try to upload a file regarding each case (e.g. a scanned image with the patient’s medical exams).
