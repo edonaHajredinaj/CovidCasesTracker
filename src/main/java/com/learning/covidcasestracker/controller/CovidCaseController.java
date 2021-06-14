@@ -4,12 +4,10 @@ import com.learning.covidcasestracker.CovidCaseService;
 import com.learning.covidcasestracker.data.model.CovidCase;
 import com.learning.covidcasestracker.statistics.CovidCaseStatistics;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/covidcases")
