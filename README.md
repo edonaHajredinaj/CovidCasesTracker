@@ -7,8 +7,10 @@
 - JPA Repository
 
 #### Database Tables
+Fields of the CovidCase model,
 
-| cases      |  |
+
+| cases      |   type
 | ----------- | ----------- |
 | patientid (increment)       | int(11) unsigned |
 | full_name    | varchar(25)        |
@@ -27,7 +29,6 @@
 ### CovidCases API
 
 ###### path = "api/v1/covidcases"
-Open in HTTP client
 
 - `GET covidcases` returns all cases.
 - `GET products/{id}` returns a case by id and the persons information.
@@ -56,7 +57,7 @@ Open in HTTP client
   "underlyingDisease": false
 }
 ```
-
+- `GET covidcases/stat` returns the statistics for all cases regarding the deactivated (not active cases), deceased, recovered.
 
 ## The Code Challenge
 
