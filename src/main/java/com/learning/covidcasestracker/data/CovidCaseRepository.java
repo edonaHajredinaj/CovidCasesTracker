@@ -11,9 +11,15 @@ import java.util.Optional;
 @Repository
 public interface CovidCaseRepository extends JpaRepository<CovidCase, Integer> {
 
-    //SELECT * FROM cases WHERE email = ?
+    //SELECT * FROM cases WHERE email = ? also the nr 1 after ?, means it returns 1 email.
     @Query("SELECT c FROM CovidCase c WHERE c.email = ?1")
     Optional<CovidCase> findCovidCaseByEmail(String email);
+
+    @Query("SELECT COUNT(PatientID) FROM CovidCase WHERE deceased = false AND recovered = false AND deactivated = false")
+    Integer getAllActiveCases();
+
+    @Query("SELECT COUNT(PatientID) FROM CovidCase")
+    Integer getTotalCovidCasesNumber();
 
 //    @Query("SELECT COUNT(PatientID) FROM CovidCase WHERE deceased = true")
 //    Integer findAllByDeceased();
