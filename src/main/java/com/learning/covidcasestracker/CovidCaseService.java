@@ -78,18 +78,20 @@ public class CovidCaseService {
         covidCase.setUnderlyingDisease(request.isUnderlyingDisease());
     }
 
-    private boolean isValid(String newValue, String oldValue) {
-        return newValue != null &&
-                newValue.length() > 0 &&
-                !Objects.equals(oldValue, newValue);
-    }
-
     public CovidCaseStatistics getAllCovidCaseStat() {
         return CovidCaseStatistics.builder()
                 .deactivated(getCount(CovidCase::isDeactivated))
                 .recovered(getCount(CovidCase::isRecovered))
                 .deceased(getCount(CovidCase::isDeceased))
                 .build();
+    }
+
+
+
+    private boolean isValid(String newValue, String oldValue) {
+        return newValue != null &&
+                newValue.length() > 0 &&
+                !Objects.equals(oldValue, newValue);
     }
 
     private long getCount(Predicate<CovidCase> predicate) {

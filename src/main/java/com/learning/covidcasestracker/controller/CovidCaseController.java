@@ -30,7 +30,6 @@ public class CovidCaseController {
         return caseService.getAllCovidCaseStat();
     }
 
-
     @GetMapping(path = "{patientID}")
     public CovidCase getCovidCaseById(@PathVariable("patientID") Integer PatientID) {
         return caseService.getCovidCaseByIdOrThrow(PatientID);
