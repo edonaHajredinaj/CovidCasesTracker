@@ -43,10 +43,10 @@ public class CovidCaseService {
                         "covid case with id " + patientID + " does not exist"));
     }
 
-    public void deleteCase(Integer PatientID) {
-        getCovidCaseByIdOrThrow(PatientID);
-        caseRepository.deleteById(PatientID);
-    }
+//    public void deleteCase(Integer PatientID) {
+//        getCovidCaseByIdOrThrow(PatientID);
+//        caseRepository.deleteById(PatientID);
+//    }
 
     @Transactional
     public void updateCovidCase(CovidCaseRequest request) {

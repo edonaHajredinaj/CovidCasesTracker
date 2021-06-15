@@ -40,10 +40,10 @@ public class CovidCaseController {
         caseService.addNewCovidCase(covidCase);
     }
 
-    @DeleteMapping(path = "{patientID}")
-    public void deleteCovidCase(@PathVariable("patientID") Integer patientID) {
-        caseService.deleteCase(patientID);
-    }
+//    @DeleteMapping(path = "{patientID}")
+//    public void deleteCovidCase(@PathVariable("patientID") Integer patientID) {
+//        caseService.deleteCase(patientID);
+//    }
 
     @PutMapping(path = "{patientID}")
     public void updateCovidCase(
