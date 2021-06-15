@@ -7,7 +7,7 @@
 - JPA Repository
 
 #### Database Tables
-Fields of the CovidCase model,
+The following table contains fields for the CovidCase model,
 
 
 | cases      |   type
