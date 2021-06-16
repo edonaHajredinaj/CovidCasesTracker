@@ -1,18 +1,18 @@
 ## Covid Cases Tracker
 
-#### Technologies used
+##### Technologies used
 - Java
 - Mysql
 - Spring Boot
 - JPA Repository
 
-#### Database Tables
-The following table contains fields for the CovidCase model,
+##### Database Table
+Fields of the CovidCase model,
 
 
 | cases      |   type
 | ----------- | ----------- |
-| patientid (increment)       | int(11) unsigned |
+| patientid (increment)       | int(11) |
 | full_name    | varchar(25)        |
 | birth_date      | date  |
 | age       | int(11)  |
@@ -24,10 +24,7 @@ The following table contains fields for the CovidCase model,
 | recovered     | tinyint(1) |
 | deactivated     | tinyint(1) |
 
-## REST API Routes/Endpoints
-
-### CovidCases API
-
+### CovidCases REST API Routes/Endpoints
 ###### path = "api/v1/covidcases"
 
 - `GET covidcases` returns all cases.
@@ -57,7 +54,14 @@ The following table contains fields for the CovidCase model,
   "underlyingDisease": false
 }
 ```
-- `GET covidcases/stat` returns the statistics for all cases regarding the deactivated (not active cases), deceased, recovered.
+- `GET covidcases/stat` returns the statistics for all cases regarding the deactivated (not active cases), recovered, deceased.
+```
+{
+    "deactivated": 2,
+    "recovered": 0,
+    "deceased": 1
+}
+```
 
 ## The Code Challenge
 
